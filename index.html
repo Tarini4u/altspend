@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AltSpend — Smart Spending & True No-Cost EMI Optimizer</title>
+    <!-- Tailwind CSS CDN for instant styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased selection:bg-emerald-500 selection:text-slate-900">
+
+    <!-- Header Navigation -->
+    <header class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center border-b border-slate-800">
+        <div class="text-2xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+            AltSpend<span class="text-emerald-400">.com</span>
+        </div>
+        <div class="text-sm bg-slate-800 text-slate-400 px-3 py-1.5 rounded-full font-medium flex items-center gap-2 border border-slate-700">
+            <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span> Privacy-First Engine
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="max-w-6xl mx-auto px-6 pt-16 pb-24 grid md:grid-cols-12 gap-12 items-center">
+        
+        <div class="md:col-span-6 space-y-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                Optimize your major purchases <span class="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">before</span> you check out.
+            </h1>
+            <p class="text-slate-400 text-lg leading-relaxed">
+                Paste any product link from Amazon or Flipkart. AltSpend instantly reveals cheaper brand alternatives, dynamic platform price drops, and calculates the true hidden costs of your bank's "No-Cost" EMI.
+            </p>
+            
+            <!-- Core Value Props -->
+            <div class="space-y-3 pt-2">
+                <div class="flex items-start gap-3">
+                    <div class="bg-emerald-500/10 text-emerald-400 p-1 rounded mt-0.5">✓</div>
+                    <p class="text-slate-300 text-sm"><strong class="text-white">Zero Privacy Intrusion:</strong> No bank logins, no SMS tracking, no credit score checks.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                    <div class="bg-emerald-500/10 text-emerald-400 p-1 rounded mt-0.5">✓</div>
+                    <p class="text-slate-300 text-sm"><strong class="text-white">Hidden Cost Audit:</strong> Uncover backend processing fees and reducing interest GST loops.</p>
+                </div>
+            </div>
+
+            <!-- Waitlist Form Form -->
+            <form class="pt-4 space-y-3" onsubmit="alert('Thank you for joining the AltSpend early access list!'); return false;">
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Get Early Beta Access</label>
+                <div class="flex flex-col sm:flex-row gap-2 max-w-md">
+                    <input type="email" placeholder="Enter your email address" required 
+                           class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 flex-1 transition-all text-sm">
+                    <button type="submit" 
+                            class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-900 font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-emerald-500/10 text-sm whitespace-nowrap">
+                        Join Waitlist
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Interactive Simulator Widget (Right Side Column) -->
+        <div class="md:col-span-6 bg-slate-800/50 border border-slate-800 p-6 md:p-8 rounded-3xl backdrop-blur-sm shadow-xl">
+            <div class="mb-6">
+                <span class="text-xs uppercase bg-emerald-500/10 text-emerald-400 px-2.5 py-1 rounded-md font-semibold tracking-wider">Live POC Simulator</span>
+                <h3 class="text-xl font-bold text-white mt-2">Test the Logic</h3>
+                <p class="text-slate-400 text-xs mt-1">See how AltSpend protects middle-class cash reserves transparently.</p>
+            </div>
+
+            <!-- Simulation Inputs -->
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs text-slate-400 font-medium mb-1">Select Intended Luxury Purchase</label>
+                    <select id="itemSelect" onchange="runSimulation()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-slate-200 text-sm focus:outline-none focus:border-emerald-500">
+                        <option value="60000">Premium Flagship Smartphone (₹60,000)</option>
+                        <option value="120000">High-End Creator Laptop (₹1,200,000)</option>
+                        <option value="45000">Smart 4K QLED Television (₹45,000)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs text-slate-400 font-medium mb-1.5">Select Your Existing Bank Credit Cards</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="flex items-center gap-2 bg-slate-900 border border-slate-700 p-3 rounded-xl cursor-pointer text-xs font-medium text-slate-300">
+                            <input type="checkbox" id="hdfcCard" checked onchange="runSimulation()" class="accent-emerald-500 h-4 w-4"> HDFC Bank
+                        </label>
+                        <label class="flex items-center gap-2 bg-slate-900 border border-slate-700 p-3 rounded-xl cursor-pointer text-xs font-medium text-slate-300">
+                            <input type="checkbox" id="iciciCard" onchange="runSimulation()" class="accent-emerald-500 h-4 w-4"> ICICI Bank
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Simulation Matrix Output Window -->
+                <div class="bg-slate-900 border border-slate-800 p-4 rounded-xl space-y-3.5" id="outputMatrix">
+                    <!-- Javascript populates live dynamic calculations here -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Trust Layer -->
+    <footer class="max-w-6xl mx-auto px-6 py-8 border-t border-slate-800/60 text-center text-xs text-slate-500">
+        &copy; 2026 AltSpend Tech. Private, localized mathematical modeling engines. No consumer financial metrics tracked.
+    </footer>
+
+    <!-- Optimization Calculation Logic Engine -->
+    <script>
+        function runSimulation() {
+            const basePrice = parseFloat(document.getElementById('itemSelect').value);
+            const hasHdfc = document.getElementById('hdfcCard').checked;
+            const hasIcici = document.getElementById('iciciCard').checked;
+            const matrixDiv = document.getElementById('outputMatrix');
+
+            // Fallback alternative recommendation mapping based on base price input tier
+            let alternateText = "";
+            if(basePrice === 60000) alternateText = "💡 <strong>AltSpend Smart Swap:</strong> An identical spec premium tier device is available on Tata Cliq for ₹57,200 right now (Saves ₹2,800 upfront).";
+            else if(basePrice === 120000) alternateText = "💡 <strong>AltSpend Smart Swap:</strong> You can rent this production machine via SharePal ecosystem for just ₹1,800/day for project windows.";
+            else alternateText = "💡 <strong>AltSpend Smart Swap:</strong> Certified Tier-1 D2C alternatives match this hardware panel performance for ₹31,000.";
+
+            if (!hasHdfc && !hasIcici) {
+                matrixDiv.innerHTML = `<p class="text-slate-500 text-xs text-center py-4">Toggle a credit card brand profile above to view the true net outflow breakdown logic.</p>`;
+                return;
+            }
+
+            // Calculation assumptions modeling Indian retail financing conditions (Reducing balance)
+            let tenure = 3; 
+            let bankInterestRate = 15; // 15% Standard processing rate
+            let monthlyRate = (bankInterestRate / 100) / 12;
+            
+            let monthlyEmi = (basePrice * monthlyRate * Math.pow(1 + monthlyRate, tenure)) / (Math.pow(1 + monthlyRate, tenure) - 1);
+            let totalBankRepayment = monthlyEmi * tenure;
+            let upfrontMerchantSubsidy = totalBankRepayment - basePrice;
+            
+            // Hidden costs accounting logic (18% sovereign GST loop + structural gateway token processing fees)
+            let hiddenGst = upfrontMerchantSubsidy * 0.18;
+            let processingFeeWithGst = 234.82; 
+            let totalTrueOutflow = basePrice + hiddenGst + processingFeeWithGst;
+
+            matrixDiv.innerHTML = `
+                <div class="border-b border-slate-800 pb-2.5">
+                    <p class="text-xs uppercase font-bold tracking-wider text-emerald-400">Optimal Vector Found</p>
+                    <p class="text-slate-300 text-xs mt-1">${hasHdfc ? 'HDFC Bank Credit Card' : 'ICICI Bank Credit Card'} — ${tenure}-Month True Audit</p>
+                </div>
+                <div class="grid grid-cols-2 gap-y-1.5 text-xs">
+                    <span class="text-slate-500">Advertised Cost:</span>
+                    <span class="text-right text-slate-300 font-medium">₹${basePrice.toLocaleString('en-IN')}</span>
+                    
+                    <span class="text-slate-500">Upfront Swipe Discount:</span>
+                    <span class="text-right text-emerald-400 font-medium">- ₹${Math.round(upfrontMerchantSubsidy).toLocaleString('en-IN')}</span>
+                    
+                    <span class="text-slate-500">Hidden GST + Processing:</span>
+                    <span class="text-right text-rose-400 font-medium">+ ₹${Math.round(hiddenGst + processingFeeWithGst).toLocaleString('en-IN')}</span>
+                    
+                    <div class="col-span-2 border-t border-slate-800/60 my-1"></div>
+                    
+                    <span class="text-slate-200 font-semibold">True Total Pocket Cost:</span>
+                    <span class="text-right text-white font-bold">₹${Math.round(totalTrueOutflow).toLocaleString('en-IN')}</span>
+                </div>
+                <div class="bg-slate-950 p-2.5 rounded-lg text-[11px] text-slate-400 leading-normal border border-slate-800/40">
+                    ${alternateText}
+                </div>
+            `;
+        }
+        // Initialize logic computation cycle on payload load boot window
+        window.onload = runSimulation;
+    </script>
+</body>
+</html>
