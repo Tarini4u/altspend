@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "AltSpend — True No-Cost EMI Optimizer",
+  "version": "1.0",
+  "description": "Instantly audits upfront discount tricks and hidden interest GST loops at checkout pages.",
+  "permissions": [
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.amazon.in/*", "*://*.flipkart.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
